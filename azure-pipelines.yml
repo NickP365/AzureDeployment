@@ -7,4 +7,4 @@ pool:
 steps:
 - task: gitsync@1
   inputs:
-    GitRepoUrl: 'https://github.com/BassBoulder/AzureDeployment.git'
+    GitRepoUrl: 'https://$(githubpersonaltoken)@github.com/BassBoulder/AzureDeployment.git'
