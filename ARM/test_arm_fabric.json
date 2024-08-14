@@ -16,7 +16,7 @@
       }
     },
     "allowedSKU": {
-      "type": "string",
+      "type": "array",
       "allowedValues": ["F2", "F4", "F8", "F16"],
       "metadata": {
         "description": "Maximum SKU for this project: F16."
@@ -33,7 +33,6 @@
         "name": "[parameters('allowedSKU')]"
       },
       "properties": {
-        // Add additional properties here if needed
       }
     }
   ],
