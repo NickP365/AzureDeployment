@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "fabricResourceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Microsoft Fabric capacity resource."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the Microsoft Fabric capacity."
+      }
+    },
+    "allowedSKU": {
+      "type": "array",
+      "allowedValues": ["F2", "F4", "F8", "F16"],
+      "metadata": {
+        "description": "Maximum SKU for this project: F16."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Fabric/capacities",
+      "apiVersion": "2022-07-01-preview",
+      "name": "[parameters('fabricResourceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('allowedSKU')]"
+      },
+      "properties": {
+      }
+    }
+  ],
+  "variables": {},
+  "outputs": {}
+}
