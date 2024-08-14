@@ -9,10 +9,11 @@
       }
     },
     "allowedSKU": {
-      "type": "string",
+      "type": "array",
+      "defaultValue": ["F2"],
       "allowedValues": ["F2", "F4", "F8", "F16"],
       "metadata": {
-        "description": "Maximum SKU for this project: F16."
+        "description": "Array of allowed SKUs for this Microsoft Fabric capacity. Select the first item."
       }
     }
   },
@@ -21,12 +22,10 @@
       "type": "Microsoft.Fabric/capacities",
       "apiVersion": "2022-07-01-preview",
       "name": "[parameters('fabricResourceName')]",
-      "location": "[parameters('location')]",
       "sku": {
-        "name": "[parameters('allowedSKU')]"
+        "name": "[parameters('allowedSKU')[0]]"
       },
-      "properties": {
-      }
+      "properties": {}
     }
   ],
   "variables": {},
