@@ -10,12 +10,3 @@ https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/resources/tools
 
 **Data Landing Zone:**
 https://github.com/Azure/data-landing-zone
-
----
-**Sync ADO (Primary Repo) <> GitHub (Secondary Repo):**
-
-***PowerShell:***
-https://github.com/RekhuGopal/SyncADOtoGitHub/blob/main/SynADOtoGitHub.ps1
-
-***Video:***
-https://www.youtube.com/watch?v=G1nKqb8be-A&t=0s
