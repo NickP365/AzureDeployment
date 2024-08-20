@@ -5,8 +5,8 @@
 3. Install Azure BICEP
 
 4. Locate intended folder using cd command
-5. **Run:** az bicep build --file name.bicep
-6. An identically named file with a .json extension will be created:
+5. **Run:** az bicep recompile --file name.bicep
+6. An identically named file with a .bicep extension will be created:
 
 ---
 
@@ -16,7 +16,7 @@
 ![image.png](/.attachments/image-41595621-ad44-4e4c-963d-f5d1a4555f33.png)
 
 **5.**
-![image.png](/.attachments/image-694ee66e-295c-4f26-8e75-8d0e33a4e20f.png)
+![image.png](/.attachments/image-48967c3b-afd1-4fe4-a971-9a73e6d42e67.png)
 
 **6.** 
-![image.png](/.attachments/image-7be3649c-4d3c-4b85-b436-5ca7bef5851f.png) 
+![image.png](/.attachments/image-0b822a08-1f1e-4b5b-bfa2-b52d89accc13.png)
