@@ -19,4 +19,4 @@
 **TASK** = Wire-Up Bedroom Light Switch
 
 ![image.png](/.attachments/image-ee7fdf8b-8ee6-4720-9833-35d6a069b63f.png)
-**BUG** = Dimmer Buzzers
+**BUG** = Dimmer Buzzes
