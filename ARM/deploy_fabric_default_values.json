@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "capacityName": {
+      "type": "string",
+      "defaultValue": "testdeployment",
+      "metadata": {
+        "description": "Name of the Fabric capacity"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "UK South",
+      "metadata": {
+        "description": "Location of the resource"
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "F2",
+      "allowedValues": [
+        "F2",
+        "F4",
+        "F8",
+        "F16"
+      ],
+      "metadata": {
+        "description": "The SKU for the Fabric capacity"
+      }
+    },
+    "adminEmail": {
+      "type": "string",
+      "defaultValue": "viktorija.hajduk@p365.co.uk",
+      "metadata": {
+        "description": "The administrator's email for Fabric capacity"
+      }
+    },
+    "resourceGroupName": {
+      "type": "string",
+      "defaultValue": "azureDeployment",
+      "metadata": {
+        "description": "The name of the resource group"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Fabric/capacities",
+      "apiVersion": "2022-07-01-preview",
+      "name": "[parameters('capacityName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "tier": "Fabric"
+      },
+      "properties": {
+        "administration": {
+          "members": [
+            "[parameters('adminEmail')]"
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "capacityResourceId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Fabric/capacities', parameters('capacityName'))]"
+    }
+  }
+}
