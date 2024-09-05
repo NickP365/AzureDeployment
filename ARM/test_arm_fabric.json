@@ -1,33 +1,76 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.29.47.4906",
+      "templateHash": "4198896825225246932"
+    }
+  },
   "parameters": {
-    "fabricResourceName": {
+    "name": {
       "type": "string",
+      "defaultValue": "fabukslake"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "F2",
+      "allowedValues": [
+        "F2",
+        "F4",
+        "F8",
+        "F16"
+      ]
+    },
+    "skuTier": {
+      "type": "string",
+      "defaultValue": "Fabric"
+    },
+    "admin": {
+      "type": "array",
+      "defaultValue": [
+        "viktorija.hajduk@p365.com"
+      ],
       "metadata": {
-        "description": "Name of the Microsoft Fabric capacity resource."
+        "description": "admin format: something@domain.com"
       }
     },
-    "allowedSKU": {
-      "type": "array",
-      "defaultValue": ["F2"],
-      "allowedValues": ["F2", "F4", "F8", "F16"],
-      "metadata": {
-        "description": "Array of allowed SKUs for this Microsoft Fabric capacity. Select the first item."
-      }
+    "tagValues": {
+      "type": "object",
+      "defaultValue": {}
     }
   },
   "resources": [
     {
       "type": "Microsoft.Fabric/capacities",
       "apiVersion": "2022-07-01-preview",
-      "name": "[parameters('fabricResourceName')]",
+      "name": "[toLower(parameters('name'))]",
+      "location": "[parameters('location')]",
+      "tags": "[parameters('tagValues')]",
       "sku": {
-        "name": "[parameters('allowedSKU')[0]]"
+        "name": "[parameters('skuName')]",
+        "tier": "[parameters('skuTier')]"
       },
-      "properties": {}
+      "properties": {
+        "administration": {
+          "members": "[parameters('admin')]"
+        }
+      }
     }
   ],
-  "variables": {},
-  "outputs": {}
+  "outputs": {
+    "resourceId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Fabric/capacities', toLower(parameters('name')))]"
+    },
+    "resourceName": {
+      "type": "string",
+      "value": "[toLower(parameters('name'))]"
+    }
+  }
 }
