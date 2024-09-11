@@ -1,4 +1,4 @@
-To use the "Deploy to Azure" button, the link needs to be constructed in a way that points to the Azure portal deployment UI, not just to the raw file.
+To use the "Deploy to Azure" button, the link needs to be constructed in a way that points to the Azure portal deployment UI: https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
 
 EXAMPLE:
 
