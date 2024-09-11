@@ -3,7 +3,7 @@ To use the "Deploy to Azure" button, the link needs to be constructed in a way t
 EXAMPLE:
 
 https://portal.azure.com/#create/Microsoft.Template/uri/{encoded-template-url}
-Where {encoded-template-url} is the encoded URL of the ARM template stored in the Azure Storage account. You can use URL encoding for special characters such as :, /, and ?.
+Where {encoded-template-url} is the encoded URL of the ARM template stored in the Azure Storage account (use URL encoding for special characters such as :, /, and ?).
 
 Storage URL: 
 https://stuksazd.blob.core.windows.net/prodarm/test_storage.json?sp=r&st=2024-09-11T17:03:34Z&se=2024-09-12T01:03:34Z&sv=2022-11-02&sr=b&sig={SAS token}8%3D
